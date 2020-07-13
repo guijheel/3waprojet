@@ -1,0 +1,18 @@
+
+  <!--Page offres html si le catalogue n'est pas vide -->
+    <div class ="cards">
+    <?php if(!empty($catalogue)): ?>
+      <?php foreach($catalogue as $catalogues): ?>
+        <!--Page offres html affichage du catalogue -->
+    <div class="catalogue">
+      <h1><?=$catalogues['nom_plat'] ?> </h1>
+      <img src="img/cards/<?=$catalogues['image'] ?>" alt="<?=$catalogues['nom_plat'] ?>"> </img>
+      <p><?=$catalogues['description_plat'] ?></p>
+      <span><?=$catalogues['prix_plat'] ?>€</span>
+      <br>
+      <button><a href="pannier.php?action=ajout&amp;nom_plat=<?=$catalogues['nom_plat']?>&amp;
+      id_plat=<?=$catalogues['id_plat']?>&amp;prix=<?=$catalogues['prix_plat']?>&amp;quantite=1
+      "title="btn-panier">Placer dans le panier</a></button>
+      </div>
+    <?php endforeach ?>
+    <?php endif; ?>

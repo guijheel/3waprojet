@@ -1,0 +1,32 @@
+<!--Page inscription html Erreur ou succes -->
+
+<?php if(!empty($errors)): ?>
+    <div class="alert">
+        <p>Vous avez mal remplit le formulaire !</p>
+    <?php foreach($errors as $error): ?>
+    <li><ul><?= $error; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+   <?php if(!empty($suces) && $suces != NULL): ?>
+    <div class="suces">
+        <p>Félicitations ! </p>
+    <?php foreach($suces as $sucess): ?>
+    <li><ul><?= $sucess; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+
+  <!--Page insciption html formulaire connexion -->
+<form action="" method="POST" class="formu_co">
+    <div class="formulaire">
+
+            <h1>Incrivez-vous !</h1>
+                <label >Votre e-mail<input type="mail" placeholder="Votre e-mail" name="email" required></label>
+                <label >Votre pseudo<input type="text" placeholder="Votre pseudo" name="pseudo" required></label>
+                <label >Votre mot de passe<input type="password" placeholder="Votre mot de passe" name="password" required></label>
+                <label >Confirmez votre mot passe<input type="password" placeholder="Confirmez votre mot passe" name="password-confirmation" required></label>
+                <button>Valider mon inscription</button>
+            </div>
+        </form>
+

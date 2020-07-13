@@ -1,0 +1,27 @@
+<!--Page connexion html Erreur ou succes -->
+<?php if(!empty($false) && $false != NULL): ?>
+    <div class="alert">
+    <?php foreach($false as $falses): ?>
+    <li><ul><?= $falses; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+   <?php if(!empty($true) && $true != NULL): ?>
+    <div class="suces">
+    <?php foreach($true as $trues): ?>
+    <li><ul><?= $trues; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+
+<!--Page connexion html formulaire de connexion -->
+
+<form action="" method="POST" class="formu_co">
+<div class="formulaire">
+            <h1>Ravie de vous revoir !</h1>
+                <label>Entrer votre E-mail ou votre Pseudo <input type="text" placeholder="Votre e-mail ou pseudo ..." name="pseudo" required></label>
+                <label>Saissisez votre Mot de passe : <input type="password" placeholder="Votre mot de passe..." name="password" required></label>
+               <p><input type="checkbox"> Se souvenir de moi ?</p>
+                <button>Je me connecte </button>
+    </div>
+</form>

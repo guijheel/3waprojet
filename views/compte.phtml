@@ -1,0 +1,64 @@
+
+<div class="presentation">
+<h1>Ravie de vous revoir <?php echo $current_user ?> !</h1>
+</div>
+
+<!--Page compte html Erreur ou succes -->
+
+   <?php if(!empty($errors)): ?>
+    <div class="alert">
+    <?php foreach($errors as $error): ?>
+    <li><ul><?= $error; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+
+   <?php if(!empty($suces) && ($suces != NULL)): ?>
+    <div class="suces">
+    <?php foreach($suces as $sucess): ?>
+    <li><ul><?= $sucess; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+
+<!--Page compte html selection -->
+   <div class="compte">
+    <select class="selection">
+    <option value ="0" selected = "selected">Selectionner une action</option>
+    <option value="list">Lister mes commandes</option>
+    <option value="mdp">Changer mon mot de passe</option>
+    </select>
+    </div>
+
+<!--Page compte html liste des commandes de l'utilisateur -->
+    <div id="list" class="formulaire_admin">
+    <?php foreach($commande as $commandes): ?>
+    <table class="tableaux_compte">
+    <thead>
+    <tr>
+    <th>N° de votre commande</th><td><?= $commandes['id_commande'] ?></td>
+    <th>Nom de votre commande</th><td><?= $commandes['nom_plat'] ?></td>
+    <th>Quantite </th><td><?= $commandes['quantite'] ?></td>
+    <th>Date de la commande</th><td><?= $commandes['date'] ?></td>
+    </tr>
+    </table>
+    <?php endforeach ?>
+</div>
+<!--Page compte html changez le mot de passe utilisateur -->
+
+<div class="formulaire_admin" id="mdp">
+<div class="formulaire_compte">
+<form action=""  method="post">
+   <p>Changer votre mot de passe ?</p>
+   <label class ="hide">Saissisez votre mot de passe</label>
+    <input class="form" type="password" name="password" placeholder="Changer votre mot de passe">
+    <label class ="hide">Confirmez votre mot de passe</label>
+    <input class="form" type="password" name="password-confirmation" placeholder="Confirmer votre mot de passe">
+    <button class="btn">
+        Changer votre mot de passe
+    </button>
+</form>
+</div>
+</div>
+
+

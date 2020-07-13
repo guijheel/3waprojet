@@ -1,0 +1,15 @@
+<!--Page confirmation_panier html Erreur ou succes -->
+<?php if(!empty($suces) && ($suces != NULL)): ?>
+    <div class="suces">
+    <?php foreach($suces as $sucess): ?>
+    <li><ul><?= $sucess; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+   <?php if(!empty($errors)): ?>
+    <div class="alert">
+    <?php foreach($errors as $error): ?>
+    <li><ul><?= $error; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>

@@ -1,0 +1,35 @@
+<!--Page pannier html si le pannier nest pas vide-->
+
+    <?php  if (!empty($_SESSION['panier'])): {?> 
+ <?php $count_panier = count($_SESSION['panier']['id_produit']); ?>
+ <h1 class="pannier h1">Votre panier contient les choses présentes</h1>
+ <!--Page pannier html affichage du pannier -->
+<?php for($i = 0; $i < $count_panier; $i++){?>
+   <div class="pannier">
+        <table>
+        <tr>
+        <tbody>
+       <td><p> Nom de votre produit </p><p><?php echo("{$_SESSION['panier']['nom_plat'][$i]}");?></p></td> 
+       <td><p> Quantité </p><p><?php echo("{$_SESSION['panier']['quantite'][$i]}");?></p></td> 
+       <td><p> Prix <p><?php echo("{$_SESSION['panier']['prix'][$i]}");?> €</p></p></td>
+       <td><p class="total"> Total  <?php echo("{$_SESSION['panier']['prix_produit'][$i]}");?> €</p></td>
+      <td><p class="action"> Action
+          <a href="ajout_pannier.php?=ajout&amp;id=<?php echo("{$_SESSION['panier']['id_produit'][$i]}");?>" title="ajout"><button class="oppp" >+</button></a>
+          <a href="suppr_pannier.php?=delete&amp;id=<?php echo("{$_SESSION['panier']['id_produit'][$i]}");?>" title="suppr"><button class="oppm">-</button></a>
+         </td>
+      </tr>
+     </tbody>
+     </table>
+    </div>
+<?php } ?>
+<!--Page pannier html validation du pannier -->
+    <div class="pannier-validation">
+    <a href ="delete_panier.php">Vider intégralement votre panier ? </a>
+    <p>Prix total de vos produits : <?php echo("{$_SESSION['panier']['prix_total']}");?> €</p>
+    <form action="send_panier.php" method="POST">
+    <button type="submit" name="valider">Validez votre achat ! </button>
+    </form>
+    </div>
+    <?php }else: {?>
+      <p class="alert"> Panier Vide :'(</p>
+    <?php }endif;?>

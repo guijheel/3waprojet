@@ -1,0 +1,95 @@
+ <!--Page admin html selection des options -->
+
+<div class="admin">
+    <h1>Choississez une action à faire :</h1>
+    <select class="selection">
+    <option value ="0" selected = "selected">Selectionner une action</option>
+    <option value="ajout">Ajouter un plat</option>
+    <option value="suppr" name="suppr-plat" >Lister & Supprimer un plat</option>
+    <option value="comm" >Lister & Supprimer un commentaire</option>
+    <option value="suppr-user" >Lister & Supprimer un utilisateurs</option>
+    </select>
+</div>
+
+ <!--Page admin html Erreur ou succes -->
+<?php if(!empty($error)): ?>
+    <div class="alert">
+    <?php foreach($error as $errors): ?>
+    <li><ul><?= $errors; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+
+   <?php if(!empty($suces)): ?>
+    <div class="suces">
+    <?php foreach($suces as $sucess): ?>
+    <li><ul><?= $sucess; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+
+ <!--Page admin html ajout utilisateur -->
+<div id="ajout" class="formulaire_admin">
+    <form action="" method="POST" enctype='multipart/form-data'>
+        <label class ="hide">Votre image a upload</label>
+        <input type="file" name="image">
+        <label class ="hide">Le nom de votre plat</label>
+        <input type="text" placeholder="Nom du plat" name="nom_plat" >
+        <label class ="hide">La description de votre plat</label>
+        <input type="text" placeholder="Description du plat" name="description_plat" >
+        <label class ="hide">Prix de votre plat</label>
+        <input type="number" placeholder="Prix du plat" name="prix_plat" >
+        <button>Confirmez l'ajout </button>
+    </form>
+</div>
+
+ <!--Page admin html supprimer un utilisateur -->
+<div id="suppr" class="formulaire_admin">
+    <?php foreach($resultat as $resultats): ?>
+    <table class="tableaux_admin">
+    <thead>
+    <tr>
+    <th>N° de l'article :</th><td><?= $resultats['id_plat'] ?></td>
+    <th>Image du plat :</th><td><?= $resultats['image'] ?></td>
+    <th>Nom du plat :</th><td><?= $resultats['nom_plat'] ?></td>
+    <th>Description du plat :</th><td><?= $resultats['description_plat'] ?></td>
+    <th>Prix du plat :</th><td><?= $resultats['prix_plat'] ?></td>
+    <a href="delete.php?id=<?= $resultats['id_plat'] ?>">Supprimer cliquer ici</a>
+    </tr>
+    </table>
+    <?php endforeach ?>
+</div>
+
+ <!--Page admin html Lister & suppression commentaire -->
+<div id="comm" class="formulaire_admin">
+    <?php foreach($commentaire as $commentaires): ?>
+    <table class="tableaux_admin">
+    <thead>
+    <tr>
+    <th>N° du commentaire :</th><td><?= $commentaires['id'] ?></td>
+    <th>Titre du commentaire :</th><td><?= $commentaires['titre'] ?></td>
+    <th>Commentaire :</th><td><?= $commentaires['commentaire'] ?></td>
+    <th>Pseudo:</th><td><?= $commentaires['pseudo'] ?></td>
+    <th>Note :</th><td><?= $commentaires['note'] ?></td>
+    <th>Date du commentaire :</th><td><?= $commentaires['date_com'] ?></td>
+    <a href="delete_com.php?id=<?= $commentaires['id'] ?>">Supprimer cliquer ici</a>
+    </tr>
+</table>
+    <?php endforeach ?>
+</div>
+
+ <!--Page admin html Lister & Supprimer des utilisateurs -->
+<div id="suppr-user" class="formulaire_admin">
+    <?php foreach($user as $users): ?>
+    <table class="tableaux_admin">
+    <thead>
+    <tr>
+    <th>N°  :</th><td><?= $users['id'] ?></td>
+    <th>email :</th><td><?= $users['email'] ?></td>
+    <th>Pseudo :</th><td><?= $users['pseudo'] ?></td>
+    <th>Date d'inscription :</th><td><?= $users['date_token'] ?></td>
+    <a href="delete_user.php?id=<?= $users['id'] ?>">Supprimer cliquer ici</a>
+    </tr>
+</table>
+    <?php endforeach ?>
+</div>

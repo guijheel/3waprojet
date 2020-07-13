@@ -1,0 +1,37 @@
+<form action="" method="POST" class="note">
+     <!--Page commentaire html Erreur ou succes -->
+<?php if(!empty($errors)): ?>
+    <div class="alert">
+        <p>Vous avez mal remplit le formulaire !</p>
+    <?php foreach($errors as $error): ?>
+    <li><ul><?= $error; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+   <?php if(!empty($suces) && $suces != NULL): ?>
+    <div class="suces">
+        <p>Félicitations ! </p>
+    <?php foreach($suces as $sucess): ?>
+    <li><ul><?= $sucess; ?></li></ul>
+    <?php endforeach; ?>
+   </div>
+   <?php endif; ?>
+    <!--Page commenaire html ajout d'un commentaire -->
+    <div class="commentaire">
+        <h1>Merci de nous pratager une trace de vos souvenir</h1>
+        <label class ="hide">Mettre un titre ?</label>
+                <input type="text" placeholder="Mettre un titre ?" name="titre" required>
+                
+                <div class="notation">
+                <label class ="hide">Decrivez nous votre expériences</label>
+                    <textarea calss="text" name="texte" placeholder="Décrivez nous votre expérience." required></textarea>
+                    <i class="far fa-star"  id="1"></i>
+                    <i class="far fa-star"  id="2"></i>
+                    <i class="far fa-star"  id="3"></i>
+                    <i class="far fa-star"  id="4"></i>
+                    <i class="far fa-star"  id="5"></i>
+                
+                </div>
+                <button id="envoyer">Soumettre mon commentaire</button>
+    </div>
+</form>

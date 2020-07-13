@@ -1,0 +1,50 @@
+<!--Page index html player audio -->
+<div class="player">
+<audio controls src="music/Might+U.mp3">Ton navigateur ne supporte pas le lecteur :'(.</audio>
+
+</div>
+<!--Page index html presentation -->
+<div class="presentation">
+        <h1> Qui sommes nous ?</h1>
+        <p>Créateur d'oeuvre d'art dans le domaine de la cusine de Chef depuis 1965 ! Nous sommes la pour vous faire découvrir des nouvelles saveurs à vos palais !  </p>
+    </div>
+   <!--Page index html slider -->
+    <figure class="slider">
+            <img src="img/slider/1.jpg" alt="img  carrousel">
+        </figure>
+<!--Page index html presentation -->
+<div class="presentation">
+        <h1> Ou sommes  nous ?</h1>
+    </div>
+<!--Page index html map -->
+    <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10495.001724791931!2d2.393458!3d48.882034!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x44e88992f40d039c!2sDanube!5e0!3m2!1sfr!2sfr!4v1590680588408!5m2!1sfr!2sfr"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+<!--Page index html presentation -->
+    <div class="presentation">
+        <h1> Ou livrons nous ?</h1>
+        <ul>
+            <li>
+                <p>Nous vous livrons en Region Parisienne et ses environs !</p>
+            </li>
+        </ul>
+    </div>
+    <!--Page index html presentation -->
+    <div class="presentation">
+        <h1> Nos habitués parlent de nous </h1>
+        </div>
+        <!--Page index html slider avis -->
+        <div class="slider-avis">
+       <?php while($avis = $q->fetch()) {?>
+        <ul>
+        <h1><?php echo htmlspecialchars($avis['titre']);?></h1>
+        <p>Par : <?php echo htmlspecialchars($avis['pseudo']);?><p>
+        <p>Le : <?php echo htmlspecialchars($avis['date_com']);?><p>
+        <p><?php echo htmlspecialchars($avis['commentaire']);?><p>
+        </ul>
+        <br>
+        <?php $q->closeCursor(); ?>
+       <?php } ?>
+    </div>
+
+    </div>
